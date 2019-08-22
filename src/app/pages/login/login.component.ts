@@ -19,10 +19,12 @@ export class LoginComponent {
   
   registerUser (){
     this.edited = false;
+    this.msj = '';
   }
 
   cancel (){
     this.edited = true;
+    this.msj = '';
   }
 
   onClickSubmit (formData){
@@ -40,17 +42,22 @@ export class LoginComponent {
         this.cancel();
       }
     }else if(formData.user){
-       this.user = JSON.parse(localStorage.getItem('userList'));
-       if(this.user.find(e => e === formData.user) ){
-          localStorage.setItem("token", '653iehyugfyu3gfhiuyf');
-          this.router.navigate(['home']);
-       }else{
-          this.msj = "Usuario no encontrado";
-       }
+      if(localStorage.getItem('userList') != null){
+        this.user = JSON.parse(localStorage.getItem('userList'));
+        if(this.user.find(e => e === formData.user) ){
+            localStorage.setItem("token", '653iehyugfyu3gfhiuyf');
+            this.router.navigate(['home']);
+        }else{
+            this.msj = "Usuario no encontrado";
+        }
+      }else{
+        this.msj = "Usuario no encontrado";
+      }
     }
   }
 }
 
 export const logout = async () => {
  await localStorage.removeItem("token");
+ await localStorage.removeItem("userDetail");
 }
