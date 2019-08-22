@@ -1,0 +1,7 @@
+<app-home></app-home>
+<br>
+<div *ngFor="let data of datas">
+    <ul class="data data__ul">
+        <li class="data__li" (click)="clickItem(data.id)">{{data.title}}{{data.completed}}</li>
+    </ul>
+</div>

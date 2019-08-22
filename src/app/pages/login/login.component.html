@@ -1,0 +1,23 @@
+<div class="login ">
+  <div class="login login__container">
+      <div class="login__logo">Assessment Login</div>
+      <div class="login__logo login__logo--login-item">
+        <form #login = "ngForm" (ngSubmit) = "onClickSubmit(login.value)" class="form form__login">
+          <div class="form-field" *ngIf="edited">
+            <label class="form__user" for="login-username"><span class="hidden">Username</span></label>
+            <input id="login-username" type="text" class="form-input" placeholder="Username" name="user" required ngModel> 
+            <input type="submit" value="Log in" *ngIf="edited">
+            <span (click)="registerUser()" class="form--span">Register</span>
+            <div *ngIf="this.msj" class="form--error"> {{this.msj}}</div>
+          </div>
+          <div class="form-field" *ngIf="!edited">
+            <label class="form__user" for="login-username"><span class="hidden">Register</span></label>
+            <input id="login-username"  type="text" placeholder="Register" name="register" required ngModel>
+            <input type="submit" value="Register" >
+            <span (click)="cancel()" class="form--span">Cancel</span>
+            <div *ngIf="this.msj" class="form--error"> {{this.msj}}</div>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.data {
+    &__ul {
+        margin: 0;
+        padding: 0;
+        font-size: 24px;
+        text-align: center;
+        height: 58px;
+        line-height: 58px;
+        overflow: hidden;
+        background: #fbe2f6;
+        color: purple;
+        margin-bottom: 1rem;
+        cursor: pointer;   
+    }
+}

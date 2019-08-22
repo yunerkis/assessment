@@ -1,0 +1,16 @@
+<app-home></app-home>
+  <ul class="data data__ul">
+    <span>ID</span>
+    <li class="data__detail">{{detail.id}}</li>
+  </ul>
+  <ul class="data data__ul">
+    <span>Detail</span>
+    <li class="data__tittle"> {{detail.title}}</li>
+  </ul>
+  <ul class="data data__ul">
+    <span>Status</span>
+    <li>
+      <div class="data__status--error" *ngIf="!detail.completed"></div>
+      <div class="data__status--successe" *ngIf="detail.completed"></div>
+    </li>
+  </ul>
